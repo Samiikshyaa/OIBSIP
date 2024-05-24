@@ -79,6 +79,8 @@ public class NumberGuess extends JFrame {
 		contentPane.add(lblScore);
 		
 		textField_1 = new JTextField();
+		textField_1.setForeground(new Color(255, 0, 255));
+		textField_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		textField_1.setColumns(10);
 		textField_1.setBounds(512, 62, 160, 28);
 		textField_1.setEditable(false);
@@ -99,7 +101,7 @@ public class NumberGuess extends JFrame {
 		JButton btnNewButton = new JButton("Check");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(random);
+
 				if(life == 1) {
 					textField.setText(" ");
 				}
@@ -127,10 +129,10 @@ public class NumberGuess extends JFrame {
 					
 						if (g == random) {
 							life = 0;
-							JOptionPane.showMessageDialog(null, "Congratulations!! Its a match");
-							message.setText("Congratulations!! Its a match");
 							score= score + 100;
 							textField_1.setText(String.valueOf(score));
+							message.setText("Congratulations!! Its a match");
+							JOptionPane.showMessageDialog(null, "Congratulations!! Its a match");
 							new NewGame().setVisible(true);
 							dispose();
 							
@@ -148,7 +150,8 @@ public class NumberGuess extends JFrame {
 						}
 				}
 				else {
-					
+				
+				message.setText("The Number is: " + String.valueOf(random));
 				JOptionPane.showMessageDialog(null, "Moye Moye !! try Again");
 				new NewGame().setVisible(true);
 				dispose();
